@@ -1,0 +1,85 @@
+/// Mixin For generate media queries dynamically
+///
+/// @param {size}
+/// Type String represente the type of screen
+/// Check if the string equals to [mobile | small | medium | large]
+/// @return @media with the proper min & max width
+
+@mixin mediaQuery($size) {
+  @if ($size == "mobile") {
+    @media (max-width: 767px) {
+      @content;
+    }
+  } @else if $size == "small" {
+    @media (min-width: 768px) {
+      @content;
+    }
+  } @else if $size == "meduim" {
+    @media (min-width: 992px) {
+      @content;
+    }
+  } @else if $size == "large" {
+    @media (min-width: 1200px) {
+      @content;
+    }
+  }
+}
+
+/// Mixin for generate the overlay dynamically
+///
+/// @param {color, opacity, zIndex}
+/// color => the color of the overlay
+/// opacity => opacity degree of the overlay
+/// zIndex => integer represente where the overlay should be
+/// @return Style for the overlay
+
+@mixin overlay($color, $opacity, $zIndex) {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: $zIndex;
+  background-color: rgba($color, $opacity);
+}
+
+/// Mixin for generate the prefix for property dynamically
+///
+/// @param {property, value, prefixes}
+///  property => the name of property
+/// value => the value of property
+/// prefixes => the prefixes you want to add to the property,
+/// by default if you didn't write any prefix => add webkit, moz, o, ms automatically
+/// @return the property with all the prefixes + without prefix
+/// E.i =>   @include prefixer(box-shadow, 10px 10px 10px #000, webkit moz);
+
+@mixin prefixer($property, $value, $prefixes: ("webkit", "moz", "o", "ms")) {
+  @each $prefix in $prefixes {
+    #{"-" + $prefix + "-"+ $property}: $value;
+  }
+  #{$property}: $value;
+}
+
+/// Mixin for write the prefixs to keyframes
+///
+/// @param {name}
+/// name => the name of the animation
+
+@mixin keyFrame($animationName) {
+  @-webkit-keyframes #{$animationName} {
+    @content;
+  }
+  @-moz-keyframes #{$animationName} {
+    @content;
+  }
+  @keyframes #{$animationName} {
+    @content;
+  }
+}
+
+@mixin opacity($value) {
+  zoom: 1;
+  $opacity-ie: $value * 100;
+  filter: alpha(opacity = $opacity-ie);
+  opacity: $value;
+}

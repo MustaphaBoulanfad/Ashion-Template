@@ -1,0 +1,197 @@
+header {
+  background-color: #fff;
+  .header-container {
+    padding: 15px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .logo {
+      width: 30%;
+      height: 100%;
+      @include mediaQuery(small) {
+        width: 15%;
+        height: 100%;
+      }
+      @include mediaQuery(meduim) {
+        width: 10%;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .nav {
+      background-color: #fff;
+      box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      opacity: 0;
+      position: absolute;
+      width: 60%;
+      height: 100vh;
+      top: 0;
+      left: -100%;
+      transition: left $movementTransition, right $movementTransition,
+        opacity $movementTransition;
+      @include mediaQuery(small) {
+        width: 35%;
+      }
+      @include mediaQuery(meduim) {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        position: unset;
+        left: auto;
+        opacity: 1;
+        height: 100%;
+        width: 85%;
+        box-shadow: none;
+      }
+      &.show {
+        left: 0;
+        opacity: 1;
+      }
+      nav {
+        width: 100%;
+        font-size: 17px;
+        @include mediaQuery(small) {
+          font-size: 19px;
+        }
+        > ul {
+          > li {
+            padding: 4px 15px;
+            > a {
+              color: $headingColor;
+              display: block;
+              padding: 5px 0;
+              width: 100%;
+              cursor: pointer;
+              transition: color $hoverTransition;
+              &:hover {
+                color: $hoverColor;
+              }
+            }
+          }
+          @include mediaQuery(meduim) {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            text-transform: uppercase;
+            font-size: 16px;
+            font-weight: 400;
+            > li {
+              margin: 0 10px;
+              padding: 7px 0;
+              position: relative;
+              &::after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                height: 2px;
+                width: 0;
+                background-color: $mainColor;
+                transition: width $hoverTransition;
+              }
+              &:hover::after {
+                width: 100%;
+              }
+            }
+          }
+          @include mediaQuery(large) {
+            font-size: 18px;
+          }
+        }
+      }
+      .compte {
+        border-top: 2px solid $mainColor;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        span {
+          height: 40px;
+          padding: 10px;
+          text-align: center;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          &.actions {
+            background-color: #fff;
+            padding-bottom: 5px;
+            a {
+              position: relative;
+              margin: 0 10px;
+              i {
+                font-size: 18px;
+              }
+              .tip {
+                position: absolute;
+                top: -50%;
+                right: -50%;
+                font-size: 10px;
+                text-align: center;
+                line-height: 12px;
+                background-color: $mainColor;
+                color: #fff;
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+              }
+            }
+          }
+
+          &.register {
+            background-color: $mainColor;
+            color: #fff;
+            a {
+              color: #fff;
+              cursor: pointer;
+              transition: color $hoverTransition;
+              &:hover {
+                color: $hoverColor;
+              }
+            }
+          }
+        }
+        @include mediaQuery(meduim) {
+          flex-direction: row;
+          border: unset;
+          span.actions a {
+            margin: 0 7px;
+            i {
+              font-size: 20px;
+            }
+            .tip {
+              font-size: 12px;
+              line-height: 15px;
+              width: 15px;
+              top: -65%;
+              height: 15px;
+            }
+          }
+        }
+      }
+    }
+    .nav-mobile {
+      span {
+        width: 35px;
+        height: 35px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid #000;
+        border-radius: 2px;
+        cursor: pointer;
+        i {
+          font-size: 22px;
+        }
+      }
+      @include mediaQuery(meduim) {
+        display: none;
+      }
+    }
+  }
+}
