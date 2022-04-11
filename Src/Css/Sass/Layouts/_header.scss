@@ -28,11 +28,12 @@ header {
       flex-direction: column;
       justify-content: space-between;
       opacity: 0;
-      position: absolute;
+      position: fixed;
       width: 60%;
       height: 100vh;
       top: 0;
       left: -100%;
+      z-index: 4;
       transition: left $movementTransition, right $movementTransition,
         opacity $movementTransition;
       @include mediaQuery(small) {
@@ -174,6 +175,9 @@ header {
           }
         }
       }
+    }
+    @include mediaQuery(meduim) {
+      padding: 15px 0;
     }
     .nav-mobile {
       span {

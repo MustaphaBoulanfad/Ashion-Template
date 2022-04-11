@@ -8,7 +8,7 @@ module.exports = merge(common, {
   output: {
     filename: "[name].js",
     path: path.resolve(__dirname, "app"),
-    assetModuleFilename: "images/[name][ext]",
+    assetModuleFilename: "Images/[name][ext]",
   },
   plugins: [
     new htmlWebpackPlugin({
@@ -23,6 +23,14 @@ module.exports = merge(common, {
         test: /\.scss$/,
         use: ["style-loader", "css-loader", "sass-loader"],
       },
+      {
+        test: /\.(svg|png|jpg|gif|webp)$/,
+        type: "asset/resource",
+        generator: {
+          filename: "Images/[name][ext]",
+        },
+      },
+
       {
         test: /\.css$/,
         use: ["style-loader", "css-loader"],
