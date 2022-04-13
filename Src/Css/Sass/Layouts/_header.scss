@@ -69,9 +69,9 @@ header {
               padding: 5px 0;
               width: 100%;
               cursor: pointer;
-              transition: color $hoverTransition;
               &:hover {
                 color: $hoverColor;
+                @include prefixer(transition, $hoverTransition);
               }
             }
           }
@@ -95,7 +95,7 @@ header {
                 height: 2px;
                 width: 0;
                 background-color: $mainColor;
-                transition: width $hoverTransition;
+                @include prefixer(transition, $hoverTransition);
               }
               &:hover::after {
                 width: 100%;
@@ -150,9 +150,9 @@ header {
             a {
               color: #fff;
               cursor: pointer;
-              transition: color $hoverTransition;
               &:hover {
                 color: $hoverColor;
+                @include prefixer(transition, $hoverTransition);
               }
             }
           }

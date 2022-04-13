@@ -19,7 +19,7 @@ a {
     .dropdown-icon {
       font-size: 12px;
       transition: $movementTransition;
-      &.show {
+      &.open {
         transform: rotate(90deg);
       }
       @include mediaQuery(meduim) {
@@ -41,9 +41,9 @@ a {
       padding: 5px 0;
       width: 100%;
       cursor: pointer;
-      transition: color $hoverTransition;
       &:hover {
         color: $hoverColor;
+        @include prefixer(transition, $hoverTransition);
       }
     }
   }
