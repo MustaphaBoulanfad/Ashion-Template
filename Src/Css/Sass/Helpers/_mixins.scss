@@ -3,6 +3,7 @@
 /// @param {size}
 /// Type String represente the type of screen
 /// Check if the string equals to [mobile | small | medium | large]
+/// If size is a number, it will use as value of the width
 /// @return @media with the proper min & max width
 
 @mixin mediaQuery($size) {
@@ -20,6 +21,10 @@
     }
   } @else if $size == "large" {
     @media (min-width: 1200px) {
+      @content;
+    }
+  } @else {
+    @media (min-width : #{$size}) {
       @content;
     }
   }

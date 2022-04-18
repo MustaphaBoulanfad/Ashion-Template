@@ -1,0 +1,17 @@
+.label {
+  color: #fff;
+  font-size: 13px;
+  padding: 5px 7px;
+  height: 22px;
+  font-weight: 300;
+  text-transform: uppercase;
+  &.primary {
+    background-color: #36a300;
+  }
+  &.dark {
+    background-color: #000;
+  }
+  &.sale {
+    background-color: #ca1515;
+  }
+}
