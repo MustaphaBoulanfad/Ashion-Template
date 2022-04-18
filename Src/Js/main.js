@@ -1,18 +1,8 @@
 import "../Css/Sass/main.scss";
 import "../Css/Vendors/normalize.css";
-import "../Images/header-image-01.webp";
-import "../Images/header-image-02.webp";
-import "../Images/header-image-03.webp";
-import "../Images/header-image-04.webp";
-import "../Images/header-image-05.webp";
-import "../Images/product-1.jpg";
-import "../Images/product-2.jpg";
-import "../Images/product-3.jpg";
-import "../Images/product-4.jpg";
-import "../Images/product-5.jpg";
-import "../Images/product-6.jpg";
-import "../Images/product-7.jpg";
-import "../Images/product-8.jpg";
+
+import { descriptionsArr } from "./image";
+import { productsArr } from "./image";
 
 const btnNavMobile = document.querySelector(".nav-mobile"),
   navbar_moible = document.querySelector(".nav"),
@@ -67,16 +57,12 @@ document.addEventListener("click", () => {
 
 // Add the background Images to the descriptions
 for (let i = 0; i < descriptions.length; i++) {
-  descriptions[i].style.backgroundImage = `url("./Images/header-image-0${
-    i + 1
-  }.webp")`;
+  descriptions[i].style.backgroundImage = `url(${descriptionsArr[i]})`;
 }
 
 // Add the Background images to products
 for (let i = 0; i < products_images.length; i++) {
-  products_images[i].style.backgroundImage = `url("./Images/product-${
-    i + 1
-  }.jpg")`;
+  products_images[i].style.backgroundImage = `url(${productsArr[i]})`;
 }
 
 // Show the image when click on the span
