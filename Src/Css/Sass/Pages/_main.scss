@@ -285,3 +285,95 @@ section.products {
   }
 }
 // End Products Section
+
+// Start Banner Section
+section.banner {
+  padding: $sectionPadding 15px;
+  background-color: #f6f4f5;
+  width: 100%;
+  height: 100vh;
+  .container {
+    width: 100%;
+    height: 100%;
+    .banner-container {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      .collection-container {
+        width: 100%;
+        .collection-holder {
+          width: 300%;
+          display: flex;
+          flex-direction: row;
+          @include prefixer(transition, $movementTransition);
+          .collection {
+            width: (100% / 3);
+            text-align: center;
+            padding: 0 15px;
+            user-select: none;
+            h3 {
+              color: $mainColor;
+              font-weight: 300;
+              text-transform: uppercase;
+            }
+            h1 {
+              font-size: 50px;
+              margin: 10px 0;
+              font-weight: 400;
+              font-family: "Cookie", cursive;
+            }
+          }
+        }
+      }
+      .bullets {
+        text-align: center;
+        width: 100%;
+        margin-top: 120px;
+        padding: 15px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        span {
+          width: 12px;
+          margin: 0 2.5px;
+          display: block;
+          height: 12px;
+          border-radius: 50%;
+          background-color: #000;
+          &.active {
+            background-color: $mainColor;
+          }
+        }
+      }
+    }
+  }
+  @include mediaQuery(small) {
+    background-image: url("../../Images/banner-1.webp");
+    height: 60vh;
+    background-size: cover;
+    background-position: center;
+    .container {
+      .banner-container {
+        width: 60%;
+        margin: 0 auto;
+        .collection-container {
+          .collection-holder {
+            .collection {
+              h1 {
+                font-size: 80px;
+              }
+            }
+          }
+        }
+        .bullets {
+          margin-top: 40px;
+        }
+      }
+    }
+  }
+}
+// End Banner Section

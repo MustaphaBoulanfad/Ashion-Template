@@ -11,7 +11,11 @@ const btnNavMobile = document.querySelector(".nav-mobile"),
     document.querySelectorAll(".desc-container .description")
   ),
   products_images = Array.from(document.querySelectorAll(".product .image")),
-  showProductsSpan = Array.from(document.querySelectorAll(".show-product"));
+  showProductsSpan = Array.from(document.querySelectorAll(".show-product")),
+  collectionHolder = document.querySelector(".collection-holder"),
+  collectionBullets = Array.from(
+    document.querySelectorAll(".banner-container .bullets span")
+  );
 
 // Check the width of window
 function checkWidth() {
@@ -21,6 +25,46 @@ function checkWidth() {
     return false;
   }
 }
+
+// Function to change collection bullets color
+const changeBulletColor = (index = 0) => {
+  collectionBullets.forEach((bullet) => {
+    if (bullet.classList.contains("active")) {
+      bullet.classList.remove("active");
+    }
+  });
+  collectionBullets[index].classList.add("active");
+};
+
+changeBulletColor();
+// Function to general sliding Automatic
+const sliding = (parent, width, duration, direction, sign) => {
+  if (direction.toUpperCase() !== "X" && direction.toUpperCase() !== "Y") {
+    console.error("Direction doesn't exict! should be X or Y");
+  } else if (sign !== "-" && sign !== "+") {
+    console.error("Sign doesn't exict! should be - or +");
+  } else {
+    let slide = setInterval(() => {
+      parent.style.transform = `translate${direction.toUpperCase()}(${sign}${width}%)`;
+    }, duration);
+
+    // Remove the first element & append it at the last & return to position 0
+    parent.addEventListener("transitionend", () => {
+      let firstElement = parent.firstElementChild;
+      parent.firstElementChild.remove();
+      parent.appendChild(firstElement);
+      parent.style.transition = "none";
+      parent.style.transform = `translate${direction.toUpperCase()}(0)`;
+      setTimeout(() => {
+        parent.style.transition = getComputedStyle(
+          document.documentElement
+        ).getPropertyValue("$movementTransition");
+      });
+      let index = parent.firstElementChild.dataset.index;
+      changeBulletColor(index);
+    });
+  }
+};
 
 //Show the nav mobile when click the button
 btnNavMobile.addEventListener("click", () => {
@@ -90,3 +134,5 @@ showProductsSpan.forEach((show) => {
     }
   });
 });
+
+sliding(collectionHolder, 100 / 3, 3000, "X", "-");
