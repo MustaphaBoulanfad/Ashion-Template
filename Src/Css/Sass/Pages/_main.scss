@@ -283,6 +283,9 @@ section.products {
       }
     }
   }
+  @include mediaQuery(meduim) {
+    padding: $sectionPadding 0;
+  }
 }
 // End Products Section
 
@@ -375,6 +378,9 @@ section.banner {
       }
     }
   }
+  @include mediaQuery(meduim) {
+    padding: $sectionPadding 0;
+  }
 }
 // End Banner Section
 
@@ -431,6 +437,9 @@ section.trend {
         width: 30%;
       }
     }
+  }
+  @include mediaQuery(meduim) {
+    padding: $sectionPadding 0;
   }
 }
 // End Trend Section
@@ -539,8 +548,59 @@ section.discount {
       }
     }
   }
-  @include mediaQuery(small) {
-    padding: $sectionPadding 15px;
+  @include mediaQuery(meduim) {
+    padding: $sectionPadding 0;
   }
 }
 // End Discount Section
+
+// Start Services Section
+section.services {
+  padding: $sectionPadding 15px;
+  .service-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    .service {
+      width: 100%;
+      margin-bottom: 30px;
+      display: flex;
+      i {
+        color: $mainColor;
+        font-size: 40px;
+        margin-right: 20px;
+        width: 15%;
+      }
+      h4 {
+        margin-bottom: 5px;
+        font-size: 18px;
+        font-weight: 500;
+        color: $headingColor;
+        text-transform: capitalize;
+      }
+      p {
+        color: $paragraphColor;
+        font-size: 15px;
+        font-weight: 400;
+      }
+    }
+    @include mediaQuery(small) {
+      flex-direction: row;
+      flex-wrap: wrap;
+      .service {
+        width: 48%;
+      }
+    }
+    @include mediaQuery(meduim) {
+      .service {
+        width: 24%;
+      }
+    }
+  }
+  @include mediaQuery(meduim) {
+    padding: $sectionPadding 0;
+  }
+}
+// End Services Section
