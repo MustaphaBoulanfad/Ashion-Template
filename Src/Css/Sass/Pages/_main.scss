@@ -434,3 +434,113 @@ section.trend {
   }
 }
 // End Trend Section
+
+// Start Discount Section
+section.discount {
+  padding: $sectionPadding 0;
+  .discount-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    .image {
+      width: 100%;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    .timer {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #f4f4f4;
+      width: 100%;
+      padding: 30px 0;
+      .summer {
+        position: relative;
+        width: 100%;
+        height: 200px;
+        margin-bottom: 30px;
+        .background {
+          position: absolute;
+          width: 200px;
+          height: 200px;
+          background-color: #fff;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          border-radius: 50%;
+        }
+        .text {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          z-index: 2;
+          width: 100%;
+          h4 {
+            color: $headingColorSecond;
+            text-transform: uppercase;
+            font-weight: 400;
+            font-size: 17px;
+            span {
+              font-weight: 600;
+              color: $mainColor;
+            }
+          }
+          h2 {
+            margin: 15px 0;
+            font-size: 55px;
+            font-weight: 400;
+            letter-spacing: 3px;
+            font-family: "Cookie", cursive;
+            color: $mainColor;
+          }
+        }
+      }
+      .counter {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 30px;
+        .counter-item {
+          width: 22%;
+          span {
+            font-size: 30px;
+            font-weight: 500;
+            color: $headingColor;
+          }
+          p {
+            display: inline-block;
+            font-weight: 300;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+    @include mediaQuery(meduim) {
+      flex-direction: row;
+      > div {
+        height: 400px;
+        flex: 1;
+      }
+      .timer > div {
+        width: 80% !important;
+      }
+    }
+  }
+  @include mediaQuery(small) {
+    padding: $sectionPadding 15px;
+  }
+}
+// End Discount Section

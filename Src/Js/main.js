@@ -15,6 +15,9 @@ const btnNavMobile = document.querySelector(".nav-mobile"),
   collectionHolder = document.querySelector(".collection-holder"),
   collectionBullets = Array.from(
     document.querySelectorAll(".banner-container .bullets span")
+  ),
+  counterSpans = Array.from(
+    document.querySelectorAll(".counter .counter-item span")
   );
 
 // Check the width of window
@@ -66,6 +69,36 @@ const sliding = (parent, width, duration, direction, sign) => {
   }
 };
 
+const countDown = () => {
+  let countDownDate = new Date(`June 21, 2022 00:00:00`).getTime();
+  let currentDate = new Date().getTime();
+
+  let dateDiff = countDownDate - currentDate;
+
+  const second = 1000,
+    minute = second * 60,
+    hour = minute * 60,
+    day = hour * 24;
+
+  if (dateDiff > 1000) {
+    const finalDay = Math.floor(dateDiff / day);
+    const finalHour = Math.floor((dateDiff % day) / hour);
+    const finalMinute = Math.floor((dateDiff % hour) / minute);
+    const finalSecond = Math.floor((dateDiff % minute) / second);
+
+    counterSpans[0].innerText = finalDay;
+    counterSpans[1].innerText = finalHour;
+    counterSpans[2].innerText = finalMinute;
+    counterSpans[3].innerText = finalSecond;
+  } else {
+    counterSpans[0].innerText = "00";
+    counterSpans[1].innerText = "00";
+    counterSpans[2].innerText = "00";
+    counterSpans[3].innerText = "00";
+  }
+};
+
+setInterval(countDown, 1000);
 //Show the nav mobile when click the button
 btnNavMobile.addEventListener("click", () => {
   navbar_moible.classList.toggle("show");
