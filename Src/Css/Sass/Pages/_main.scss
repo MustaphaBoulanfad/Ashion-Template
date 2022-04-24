@@ -604,3 +604,61 @@ section.services {
   }
 }
 // End Services Section
+
+// Start Instagram Section
+section.instagram {
+  padding: $sectionPadding 15px;
+  .instagram-container {
+    display: flex;
+    flex-direction: column;
+    .instagram-image {
+      position: relative;
+      .image {
+        width: 100%;
+        height: 100%;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      .text {
+        @include prefixer(transition, background-color $hoverTransition);
+        @include overlay(#fff, 0, -1);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        i {
+          font-size: 35px;
+          margin-bottom: 10px;
+        }
+        a {
+          font-size: 19px;
+        }
+      }
+      &:hover {
+        .text {
+          @include overlay(#fff, 0.7, 2);
+        }
+      }
+    }
+    @include mediaQuery(small) {
+      flex-direction: row;
+      flex-wrap: wrap;
+      .instagram-image {
+        width: (100% / 3);
+        height: 300px;
+      }
+    }
+    @include mediaQuery(meduim) {
+      .instagram-image {
+        width: (100% / 6);
+      }
+    }
+  }
+  @include mediaQuery(meduim) {
+    padding: $sectionPadding 0;
+  }
+}
+// End Instagram Section

@@ -98,7 +98,6 @@ const countDown = () => {
   }
 };
 
-setInterval(countDown, 1000);
 //Show the nav mobile when click the button
 btnNavMobile.addEventListener("click", () => {
   navbar_moible.classList.toggle("show");
@@ -169,3 +168,4 @@ showProductsSpan.forEach((show) => {
 });
 
 sliding(collectionHolder, 100 / 3, 3000, "X", "-");
+setInterval(countDown, 1000);
