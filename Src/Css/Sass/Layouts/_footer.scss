@@ -1,0 +1,160 @@
+footer {
+  padding: $sectionPadding 15px 0;
+  .footer-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    .column {
+      width: 100%;
+      margin-bottom: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      > div {
+        width: 100%;
+      }
+      .footer-about {
+        .logo {
+          width: 130px;
+          margin-bottom: 15px;
+          img {
+            width: 100%;
+          }
+        }
+        p {
+          font-size: 15px;
+          font-weight: 300;
+          color: $paragraphColor;
+          line-height: 1.6;
+          margin-bottom: 15px;
+        }
+        .payment {
+          a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            margin: 0 3px;
+          }
+        }
+      }
+      .footer-widget {
+        margin-bottom: 20px;
+        h3 {
+          text-transform: uppercase;
+          color: $headingColor;
+          margin-bottom: 15px;
+          font-weight: 500;
+        }
+        ul {
+          li a {
+            display: inline-block;
+            font-size: 17px;
+            color: $headingColorThird;
+            margin-bottom: 9px;
+            font-weight: 200;
+            text-transform: capitalize;
+          }
+        }
+        @include mediaQuery(small) {
+          width: 50%;
+          display: inline-block;
+          margin-bottom: 0;
+        }
+      }
+      .footer-news {
+        h3 {
+          text-transform: uppercase;
+          color: $headingColor;
+          margin-bottom: 15px;
+          font-weight: 500;
+        }
+        form {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          input[type="email"] {
+            border-radius: 20px;
+            width: 100%;
+            padding: 12px;
+            outline: none;
+            border: 1px solid #ccc;
+            margin-bottom: 15px;
+            &::placeholder {
+              font-weight: 300;
+              color: $headingColorThird;
+            }
+          }
+          button {
+            border-radius: 25px;
+            padding: 14px 25px;
+            text-transform: uppercase;
+          }
+          @include mediaQuery(small) {
+            position: relative;
+            button {
+              position: absolute;
+              right: 0;
+              top: 0;
+            }
+          }
+        }
+        .social-media {
+          padding: 30px 0;
+          span {
+            display: inline-block;
+            margin-right: 3px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #ccc;
+            font-size: 17px;
+            text-align: center;
+            line-height: 45px;
+            cursor: pointer;
+          }
+          @include mediaQuery(meduim) {
+            padding: 10px 0;
+          }
+        }
+      }
+    }
+    @include mediaQuery(meduim) {
+      flex-direction: row;
+      .column {
+        width: 34%;
+      }
+      .column:nth-of-type(2) {
+        width: 25%;
+      }
+    }
+    @include mediaQuery(large) {
+      .column:nth-of-type(2) {
+        width: 25%;
+      }
+    }
+  }
+  .copy-right {
+    padding: 10px 0;
+    border-top: 1px solid #ccc;
+    font-size: 14px;
+    color: $paragraphColor;
+    text-align: center;
+    line-height: 1.4;
+    font-weight: 400;
+    .origin {
+      margin-bottom: 10px;
+      i {
+        color: $mainColor;
+      }
+      a {
+        color: $paragraphColor;
+        cursor: pointer;
+      }
+    }
+  }
+  @include mediaQuery(meduim) {
+    padding: $sectionPadding 0 0;
+  }
+}

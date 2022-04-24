@@ -18,7 +18,8 @@ const btnNavMobile = document.querySelector(".nav-mobile"),
   ),
   counterSpans = Array.from(
     document.querySelectorAll(".counter .counter-item span")
-  );
+  ),
+  copyYear = document.querySelector(".copy-right .origin .copy-year");
 
 // Check the width of window
 function checkWidth() {
@@ -169,3 +170,6 @@ showProductsSpan.forEach((show) => {
 
 sliding(collectionHolder, 100 / 3, 3000, "X", "-");
 setInterval(countDown, 1000);
+
+// Write the current year in copy right date
+copyYear.innerText = new Date().getFullYear();
