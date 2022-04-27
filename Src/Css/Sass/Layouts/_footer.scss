@@ -85,6 +85,9 @@ footer {
               font-weight: 300;
               color: $headingColorThird;
             }
+            @include mediaQuery(meduim) {
+              padding-right: 140px;
+            }
           }
           button {
             border-radius: 25px;
